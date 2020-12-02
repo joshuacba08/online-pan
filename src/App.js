@@ -1,9 +1,9 @@
 import './App.css';
-import Barnav from './components/Barnav';
+import BarNav from './components/BarNav';
 
 function App() {
   return (
-    <Barnav />
+    <BarNav />
   );
 }
 

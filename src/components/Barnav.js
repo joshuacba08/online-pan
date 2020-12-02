@@ -1,9 +1,9 @@
-import  './styles/Barnav.css';
+import  './styles/BarNav.css';
 import confLogo from '../assets/img/Melon.png';
 import CartPreview from './CartPreview';
 
  
-function Barnav () {
+function BarNav () {
     return(
         <header>
             <div className="logo">
@@ -31,4 +31,4 @@ function Barnav () {
     )
 }
 
-export default Barnav;
+export default BarNav;
