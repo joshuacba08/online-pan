@@ -1,7 +1,7 @@
 import  './styles/BarNav.css';
 import confLogo from '../assets/img/Melon.png';
 import CartPreview from './CartPreview';
-
+import Search from './Search';
  
 function BarNav () {
     return(
@@ -25,7 +25,7 @@ function BarNav () {
                     </li>
                 </ul>
             </nav>
-            <div className="buscador"></div>
+            <Search />
             <CartPreview /> 
         </header>
     )
