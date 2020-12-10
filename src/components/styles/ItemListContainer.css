@@ -1,0 +1,26 @@
+.item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    padding: 50px 0;
+    width: 100%;
+}
+
+.item-container__title {
+    font-family: 'Gochi Hand', sans-serif;
+    font-size: 4.5rem;
+}
+
+.item-container__paragraph {
+    font-size: 1.6rem;
+    color: #999999;
+
+}
+
+.product-container {
+    margin: 40px 0;
+    display: grid;
+    grid-template: 1fr/1fr 1fr 1fr;
+    gap: 20px;
+}

@@ -18,9 +18,9 @@
     background: rgba(0, 0, 0, .6);
     z-index: 9999;
     position: fixed;
-    top: 0;
     left: 0;
-    transition: all 0.5s;
+    animation: slide 400ms ease;
+    animation-fill-mode: forwards;
 }
 
 .search-box {
@@ -77,4 +77,13 @@
 
 .form-search__button i {
     fill: #999;
+}
+
+@keyframes slide {
+    from {
+        top: -100%;
+    }
+    to {
+        top: 0;
+    }
 }

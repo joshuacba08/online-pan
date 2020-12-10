@@ -1,0 +1,46 @@
+.hero {
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: blueviolet;
+}
+
+.hero__slide--1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/img/ingredientes-para-pan.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero__title {
+    font-family: 'Gochi Hand', sans-serif;
+    font-size: 6rem;
+    color: white;
+    text-shadow: 1px 1px 4px rgb(29, 25, 25, 0.1);
+}
+
+.hero__paragraph {
+    font-size: 2rem;
+    color: white;
+    padding-bottom: 40px;
+
+}
+
+.hero__button {
+    justify-self: flex-end;
+    background-color:black;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: 600;
+    height: 50px;
+    outline: none;
+    width: 140px;
+}
