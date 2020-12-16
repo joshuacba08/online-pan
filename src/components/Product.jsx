@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 import './styles/Product.css';
 import ProductReview from './ProductReview';
+import ItemCount from './ItemCount';
 
-function Product({bread,breadName,price,negativeVotes,positiveVotes}) {
+function Product({bread,breadName,price,negativeVotes,positiveVotes,stock}) {
 
     return (
         <article>
@@ -17,6 +18,7 @@ function Product({bread,breadName,price,negativeVotes,positiveVotes}) {
                     <ProductReview negativeVotes={negativeVotes} positiveVotes={positiveVotes} />
                     <span>${price}</span>
                 </div>
+                <ItemCount stock = {stock} />
             </div>
         </article>
     )
