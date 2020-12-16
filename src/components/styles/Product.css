@@ -18,12 +18,15 @@
     font-size: 1.4rem;
 }
 
-.product-detail__price {
+.product-detail__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     text-align: end;
 }
 
-.product-detail__price span {
+.product-detail__container span {
     font-size: 1.8rem;
     color: #fb7813;
     font-weight: 600;
