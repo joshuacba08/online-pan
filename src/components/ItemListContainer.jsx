@@ -7,6 +7,7 @@ import panBaguette from '../assets/img/baguette.jpg';
 import melonBread from '../assets/img/MelonBread.jpg'
 
 function ItemListContainer() {
+    
     return (
         <section className = "item-container">
             <h2 className="item-container__title">Nuestros productos</h2>

@@ -7,6 +7,9 @@ import ItemCount from './ItemCount';
 
 function Product({bread,breadName,price,negativeVotes,positiveVotes,stock}) {
 
+    const onAdd = (counter) =>{
+        alert(`Agregaste ${counter} items del producto ${breadName}`);
+    }
     return (
         <article>
             <div className="img-container">
@@ -18,7 +21,11 @@ function Product({bread,breadName,price,negativeVotes,positiveVotes,stock}) {
                     <ProductReview negativeVotes={negativeVotes} positiveVotes={positiveVotes} />
                     <span>${price}</span>
                 </div>
-                <ItemCount stock = {stock} />
+                <ItemCount 
+                    stock = {stock}
+                    initial = {1}
+                    onAdd = {onAdd}
+                />
             </div>
         </article>
     )

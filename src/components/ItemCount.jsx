@@ -3,14 +3,19 @@ import './styles/ItemCount.css';
 
 
 const ItemCount = props => {
-    console.log(props.stock);
-    const [counter, setCounter] = useState(1);
+
+    console.log(props.onAdd);
+    const [counter, setCounter] = useState(props.initial);
 
     const handleAdd = () => {
         setCounter(counter + 1);
     }
     const handleSubtract = () => {
         setCounter(counter - 1);
+    }
+    const addCart = () => {
+        props.onAdd(counter);
+        setCounter (props.initial);
     }
     return (
         <div className="item-count-main">
@@ -19,7 +24,7 @@ const ItemCount = props => {
                 <span className="count-container__number">{ counter }</span>
                 <button onClick={handleAdd} disabled={counter === props.stock ? 'disabled' : null}>+</button>
             </div>
-            <button className="add-cart">Añadir al carrito</button>
+            <button className="add-cart" onClick={addCart}>Añadir al carrito</button>
         </div>
     )
 }
