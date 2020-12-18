@@ -4,7 +4,6 @@ import './styles/ItemCount.css';
 
 const ItemCount = props => {
 
-    console.log(props.onAdd);
     const [counter, setCounter] = useState(props.initial);
 
     const handleAdd = () => {

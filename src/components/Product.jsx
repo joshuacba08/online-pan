@@ -6,7 +6,6 @@ import ProductReview from './ProductReview';
 import ItemCount from './ItemCount';
 
 function Product({bread,breadName,price,negativeVotes,positiveVotes,stock}) {
-
     const onAdd = (counter) =>{
         alert(`Agregaste ${counter} items del producto ${breadName}`);
     }

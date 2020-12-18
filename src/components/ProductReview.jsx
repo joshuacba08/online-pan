@@ -24,8 +24,8 @@ return (
     <div>
         <ul className="review-container">
             {
-                stars.map(category => {
-                    return <li key={category}>
+                stars.map((category,index) => {
+                    return <li key={index}>
                         <i className={category}></i>
                         </li>
                 })
@@ -36,7 +36,8 @@ return (
 )
 };
 ProductReview.propTypes = {
-
+    positiveVotes: PropTypes.number.isRequired,
+    negativeVotes: PropTypes.number.isRequired,
 };
 
 export default ProductReview
