@@ -1,5 +1,6 @@
 import './App.css';
 import BarNav from './components/BarNav';
+import Deals from './components/Deals';
 import Hero from './components/Hero';
 import ItemListContainer from './components/ItemListContainer';
 
@@ -9,6 +10,7 @@ function App() {
       <BarNav />
       <Hero />
       <ItemListContainer />
+      <Deals />
     </>
   );
 }
