@@ -1,0 +1,17 @@
+footer {
+    display: flex;
+    width: 100%;
+    min-width: 320px;
+    height: 80px;
+    padding: 30px 15px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #17706e;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

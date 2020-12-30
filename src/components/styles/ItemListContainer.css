@@ -8,19 +8,18 @@
 }
 
 .item-container__title {
+    color:var(--black-leter);
     font-family: 'Gochi Hand', sans-serif;
     font-size: 4.5rem;
 }
 
 .item-container__paragraph {
     font-size: 1.6rem;
-    color: #999999;
-
+    color: var(--grey);
 }
 
 .product-container {
+    display: flex;
+    justify-content: center;
     margin: 40px 0;
-    display: grid;
-    grid-template: 1fr/1fr 1fr 1fr;
-    gap: 20px;
 }

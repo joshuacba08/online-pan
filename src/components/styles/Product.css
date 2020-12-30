@@ -12,22 +12,32 @@
 .product-detail {
     width: 100%;
 }
+.product-detail a {
+    text-decoration: none;
+    color: var(--black-leter);
+    transition: all 250ms ease;
+}
+.product-detail a:hover {
+    color: var(--primary-green);
+}
 
 .product-deatail__name {
     padding: 10px 0;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
 }
 
 .product-detail__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 270px;
     width: 100%;
     text-align: end;
 }
 
 .product-detail__container span {
     font-size: 1.8rem;
-    color: #fb7813;
+    color: var(--melon-orange);
     font-weight: 600;
 }

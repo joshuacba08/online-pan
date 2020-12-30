@@ -1,3 +1,16 @@
+:root {
+  /* Colors */
+  --primary-green: #17706e;
+  --secondary-green: #b6eb7a;
+  --melon-orange: #fb7813;
+  --black-of-8: rgba(0,0,0,0.8);
+  --black: #0f0f0f;
+  --black-leter: #201e1c;
+  --off-white: #f7f7ee;
+  --just-white: #fff;
+  --grey: #999999;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,8 +19,11 @@
 
 html {
   font-size: 62.5%;
+  width: 100%;
+  min-width: 320px;
 }
 
 body {
-  font-family: 'Poppins',sans-serif;
+  font-family: 'Poppins', sans-serif;
+  min-width: 320px;
 }

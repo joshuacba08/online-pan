@@ -1,11 +1,10 @@
-import { getProductBySale } from "./searchsFunctions";
 
-const getItems = (condition) =>{ 
+const getItems = (condition, tool) =>{ 
     return new Promise( (resolve, reject) => {
         setTimeout(() => {
-            const onSaleProduct = getProductBySale(true);
-            resolve(onSaleProduct)      
-        }, 2000);
+            const productColection = tool(condition);
+            resolve(productColection)     
+        }, 1675);
     });
 }
 

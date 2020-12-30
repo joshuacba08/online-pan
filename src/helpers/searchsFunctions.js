@@ -1,10 +1,21 @@
 import {products} from "../data/dataProducts";
 
-//Voy a implementar más adelante estas funciones para buscar y filtrar productos:
-// const getProductById = (id) => products.find((product) => product.id === id);
+const getAllProducts = () => {
+    return products;
+}
 
-//Esta función devuelve un array con los productos que estén de oferta o no de acuerdo al valor que se pase como parámetro
+const getSpecificQuantity = (quantity) => products.filter((product) => product.itemID <= quantity); 
+
+const getProductById = (id) => products.find((product) => product.itemID === parseInt(id)); 
+
+const getProductByCategory = (category) => products.filter((product) => product.category === String(category));
+
 const getProductBySale = (sale) => products.filter( (product) => product.sale === sale);
 export {
+    getAllProducts,
+    getSpecificQuantity,
+    getProductByCategory,
     getProductBySale,
+    getProductById,
+
 }
