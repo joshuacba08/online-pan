@@ -4,6 +4,7 @@ import ProductReview from './ProductReview'
 import './styles/ItemDetail.css'
 
 const ItemDetail = ({item}) => {
+
     const onAdd = (counter) => {
         alert(`Agregaste ${counter} items del producto ${item.breadName}`);
     };

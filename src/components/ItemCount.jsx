@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './styles/ItemCount.css';
 
 
 const ItemCount = props => {
 
+    let history = useHistory();
+    
     const [counter, setCounter] = useState(props.initial);
 
     const handleAdd = () => {
@@ -15,6 +18,8 @@ const ItemCount = props => {
     const addCart = () => {
         props.onAdd(counter);
         setCounter (props.initial);
+        if (history.location.pathname.includes("/producto/"))
+            history.push("/cart");
     }
     return (
         <div className="item-count-main">
