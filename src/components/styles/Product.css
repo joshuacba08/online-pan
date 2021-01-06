@@ -10,6 +10,8 @@
 }
 
 .product-detail {
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 .product-detail a {
@@ -40,4 +42,14 @@
     font-size: 1.8rem;
     color: var(--melon-orange);
     font-weight: 600;
+}
+
+.add-cart--main-page {
+   margin: 20px auto;
+   width: 190px;
+   height: 35px; 
+}
+
+.add-cart--main-page span {
+    font-size: 1.6rem;
 }

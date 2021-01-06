@@ -28,7 +28,7 @@ const ItemCount = props => {
                 <span className="count-container__number">{ counter }</span>
                 <button onClick={handleAdd} disabled={counter === props.stock ? 'disabled' : null}>+</button>
             </div>
-            <button className="add-cart" onClick={addCart}>Añadir al carrito</button>
+            <button className="add-cart add-cart--detail-page" onClick={addCart}>Añadir al carrito</button>
         </div>
     )
 }

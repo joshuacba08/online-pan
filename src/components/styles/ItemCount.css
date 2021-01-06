@@ -35,13 +35,16 @@
 .add-cart {
     border-radius: 10px;
     outline: none;
-    width: 130px;
     border: none;
     background-color: #17706e;
     font-size: 1.4rem;
     font-weight: 600;
     color: white;
     cursor: pointer;
+}
+
+.add-cart--detail-page {
+    width: 130px;
 }
 
 .add-cart:hover {

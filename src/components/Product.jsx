@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './styles/Product.css';
 import ProductReview from './ProductReview';
-import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
 
 function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes,stock}) {
-    const onAdd = (counter) =>{
-        alert(`Agregaste ${counter} items del producto ${breadName}`);
+    const [button, setbutton] = useState("Añadir al carrito")
+    const onAdd = () => {
+        alert(`Agregaste el item ${breadName}`);
+        if(button==="Añadir al carrito")
+        setbutton("Añadido")
     }
     return (
         <article>
@@ -23,11 +25,9 @@ function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes,stock
                     <ProductReview negativeVotes={negativeVotes} positiveVotes={positiveVotes} />
                     <span>${price}</span>
                 </div>
-                <ItemCount 
-                    stock = {stock}
-                    initial = {1}
-                    onAdd = {onAdd}
-                />
+                <button onClick={onAdd} className="add-cart add-cart--main-page" >
+                    <span>{button}</span>
+                </button>
             </div>
         </article>
     )
