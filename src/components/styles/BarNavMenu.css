@@ -1,0 +1,105 @@
+.icon-menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.icon--menu {
+    display: inline;
+    width: 25px;
+    height: 25px;
+    background-image: url('../../assets/icons/menu-24px.svg');
+}
+
+nav {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .6);
+    z-index: 9999;
+    position: fixed;
+    left: 0;
+    animation: slide 400ms ease;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    list-style: none;
+    background-color: var(--just-white);
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.main-nav li {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.main-nav li a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main-nav li a:hover {
+    text-decoration: underline;
+}
+
+.dropdown-menu {
+    display: block;
+    width: 150px;
+    height: auto;
+    background-color: var(--just-white);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .2), 0 2px 4px 0 rgba(0, 0, 0, .04);
+    animation: slide 400ms ease;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+}
+
+/* .main-nav li:nth-child(2):hover .dropdown-menu, .dropdown-menu:hover {
+    display: block;
+} */
+
+.dropdown-menu ul {
+    padding: 10px 0;
+    list-style: none;
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.no-selected {
+    color: var(--black-leter);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.selected {
+    color: #17706e;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.down-arrow {
+    display: inline-block;
+    width: 13px;
+    height: 8px;
+    margin-left: 5px;
+    background-image: url("/src/assets/icons/down-arrow.svg");
+}

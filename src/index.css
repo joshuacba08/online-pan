@@ -3,7 +3,7 @@
   --primary-green: #17706e;
   --secondary-green: #b6eb7a;
   --melon-orange: #fb7813;
-  --black-of-8: rgba(0,0,0,0.8);
+  --black-of-8: rgba(0, 0, 0, 0.8);
   --black: #0f0f0f;
   --black-leter: #201e1c;
   --off-white: #f7f7ee;
@@ -26,4 +26,38 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   min-width: 320px;
+}
+
+.icon {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.icon--close {
+  display: inline-block;
+  align-self: flex-end;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  margin: 0 10px;
+  background-image: url('/src/assets/icons/close-24px.svg');
+}
+
+button {
+  font-size: 1.6rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+@keyframes slide {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0;
+  }
 }

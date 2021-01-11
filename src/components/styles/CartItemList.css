@@ -1,0 +1,10 @@
+.cart-item-list-container {
+    display: grid;
+    grid-template: auto / 1fr;
+    gap: 20px;
+    padding: 30px 15px;
+}
+
+.cart-item-list-container__item {
+    
+}

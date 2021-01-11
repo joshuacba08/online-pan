@@ -8,9 +8,10 @@
 }
 
 .item-container__title {
-    color:var(--black-leter);
+    color: var(--black-leter);
     font-family: 'Gochi Hand', sans-serif;
     font-size: 4.5rem;
+    text-align: center;
 }
 
 .item-container__paragraph {

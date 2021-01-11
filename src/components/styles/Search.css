@@ -38,19 +38,6 @@
     margin-left: 10px;
 }
 
-.close-icon {
-    display: inline-block;
-    align-self: flex-end;
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
-    margin: 0 10px;
-    background-image: url('/src/assets/icons/close-24px.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    cursor: pointer;
-}
 
 .form-search {
     display: flex;
@@ -77,13 +64,4 @@
 
 .form-search__button i {
     fill: #999;
-}
-
-@keyframes slide {
-    from {
-        top: -100%;
-    }
-    to {
-        top: 0;
-    }
 }

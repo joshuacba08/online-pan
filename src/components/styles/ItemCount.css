@@ -24,19 +24,10 @@
     font-size: 1.6rem;
 }
 
-.count-container button {
-    font-size: 1.6rem;
-    border: none;
-    background-color: transparent;
-    outline: none;
-    cursor: pointer;
-}
 
 .add-cart {
     border-radius: 10px;
-    outline: none;
-    border: none;
-    background-color: #17706e;
+    background-color: var(--primary-green);
     font-size: 1.4rem;
     font-weight: 600;
     color: white;

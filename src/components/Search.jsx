@@ -10,7 +10,7 @@ function Search() {
         return (
             <section className="search-container">
                 <div className="search-box">
-                    <i className="close-icon" onClick={changeState}></i>
+                    <i className="icon--close icon" onClick={changeState}></i>
                     <p>Escribí lo que estás buscando...</p>
                     <form className="form-search" action="">
                         <input className="form-search__input" type="text"

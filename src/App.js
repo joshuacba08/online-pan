@@ -6,6 +6,7 @@ import Shop from './pages/Shop';
 import Error404 from './pages/Error404';
 import Footer from './components/Footer';
 import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path="/producto/:id">
           <ProductDetail />
+        </Route>
+        <Route path="/cart">
+          <Cart />
         </Route>
 
         <Route path="*">

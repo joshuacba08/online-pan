@@ -5,7 +5,8 @@ import './styles/Product.css';
 import ProductReview from './ProductReview';
 import { Link } from 'react-router-dom';
 
-function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes,stock}) {
+function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes}) {
+    
     const [button, setbutton] = useState("Añadir al carrito")
     const onAdd = () => {
         alert(`Agregaste el item ${breadName}`);
@@ -36,7 +37,7 @@ function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes,stock
 Product.propTypes = {   
     bread: PropTypes.elementType.isRequired,
     breadName: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired
+    price: PropTypes.number.isRequired,
 }
 
 export default Product;

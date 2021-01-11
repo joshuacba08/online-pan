@@ -1,0 +1,95 @@
+.ReactModalPortal>div {
+    opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: opacity .2s ease-in-out;
+    z-index: 999;
+}
+
+.modal-fondo {
+    background-color: rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-container h2 {
+    display: flex;
+    align-items: center;
+    color: var(--black-leter);
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.icon--check {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('../../assets/icons/check_circle-24px.svg');
+}
+
+.watch-cart {
+    border-radius: 10px;
+    background-color: var(--primary-green);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+    height: 30px;
+}
+
+.watch-cart:hover {
+    transition: all ease-in 100ms;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.watch-cart:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.continue-buy {
+    border-bottom: 1px solid var(--primary-green);
+    align-self: center;
+    color: var(--primary-green);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 10px;
+    width: 160px;
+}
+
+.continue-buy:hover {
+    color: var(--secondary-green);
+    border-bottom: none;
+    transition: all ease-in 100ms;
+}
+
+/* .modal {
+    background: white;
+    border-radius: 5px;
+    color: rgb(51, 51, 51);
+    display: inline;
+    min-width: 290;
+    height: auto;
+    outline: none;
+    padding: 10px;
+}  */
