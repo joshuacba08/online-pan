@@ -1,14 +1,33 @@
-import React from 'react'
+import { useContext } from 'react'
+import { CartContext } from '../contexts/CartContext';
 import ItemCount from './ItemCount'
 import ProductReview from './ProductReview'
 import './styles/ItemDetail.css'
 
 const ItemDetail = ({item}) => {
 
+    const [data, setData] = useContext(CartContext);
+
     const onAdd = (counter) => {
-        alert(`Agregaste ${counter} items del producto ${item.breadName}`);
+        if (data.items.includes(item)){
+            setData({
+                ...data, 
+                qty: data.qty + counter,
+            });
+            let itemBuscado = data.items.indexOf(item)
+            data.items[parseInt(itemBuscado)].cantidad += 1;
+            console.log(data.items[parseInt(itemBuscado)]);
+        }
+        else{
+        setData({
+            ...data,
+            qty: data.qty + counter,
+            items: [...data.items, item],
+        });
+        }
     };
 
+    console.log(data.items)    
     return (
         <div className="item-detail-container">
             <div className="item-detail-container__img">
