@@ -2,7 +2,7 @@ import  './styles/BarNav.css';
 import confLogo from '../assets/img/Melon.png';
 import CartPreview from './CartPreview';
 import Search from './Search';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import BarNavMenu from './BarNavMenu';
 
  
@@ -18,7 +18,9 @@ function BarNav () {
             <div className="nav-elements-container">
                 <BarNavMenu />
                 <Search />
-                <CartPreview />
+                <Link to="/cart"> 
+                    <CartPreview />
+                </Link>
             </div> 
         </header>
     )

@@ -3,7 +3,7 @@ import { priceForQty } from '../helpers/calculationFunctions';
 import ItemCount from './ItemCount';
 import './styles/CartItem.css';
 
-const CartItem = ({bread, breadName, price, stock,}) => {
+const CartItem = ({bread, breadName, price, stock, qty}) => {
     return (
         <div className="cart-item-container">
             <div className="cart-item-container__imagen">
@@ -17,7 +17,7 @@ const CartItem = ({bread, breadName, price, stock,}) => {
                     <i className="icon--delete icon"></i>
                 </div>
                 <div>
-                    <span>${priceForQty(price,2)}</span>
+                    <span>${priceForQty(price,qty)}</span>
                 </div>
             </div>
         </div>

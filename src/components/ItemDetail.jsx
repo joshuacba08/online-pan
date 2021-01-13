@@ -9,25 +9,28 @@ const ItemDetail = ({item}) => {
     const [data, setData] = useContext(CartContext);
 
     const onAdd = (counter) => {
-        if (data.items.includes(item)){
+        const itemSelect = item;
+
+        if (data.items.includes(itemSelect)){
             setData({
                 ...data, 
                 qty: data.qty + counter,
             });
-            let itemBuscado = data.items.indexOf(item)
-            data.items[parseInt(itemBuscado)].cantidad += 1;
-            console.log(data.items[parseInt(itemBuscado)]);
+            let itemRepetido = parseInt(data.items.indexOf(itemSelect));
+            data.items[itemRepetido].qty+=counter;
+            console.log(data.items[itemRepetido]);
         }
         else{
+        itemSelect.qty = 1;
         setData({
             ...data,
             qty: data.qty + counter,
-            items: [...data.items, item],
+            items: [...data.items, itemSelect],
         });
         }
+        console.log(data.items);
     };
-
-    console.log(data.items)    
+  
     return (
         <div className="item-detail-container">
             <div className="item-detail-container__img">

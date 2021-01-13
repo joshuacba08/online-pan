@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getItems } from '../helpers/getItems';
 import { getSpecificQuantity } from '../helpers/searchsFunctions';
 import CartItem from './CartItem';
 import loading from '../assets/img/toriPan.gif'  
 import './styles/CartItemList.css'
+import { CartContext } from '../contexts/CartContext';
 
 const CartItemList = () => {
 
-    const [items, setItems] = useState(null);
-    // let cartList = []
-    useEffect(() =>{
-        getItems(3,getSpecificQuantity).then(response => setItems(response));
-    },[]);
+    const [data, setData] = useContext(CartContext);
+
+    const items = data.items;
 
     console.log(items);
 
@@ -29,6 +28,7 @@ const CartItemList = () => {
                                         breadName={product.breadName}
                                         price={product.price}
                                         stock={product.stock}
+                                        qty = {product.qty}
                                     />
                                 </div>
                             })
