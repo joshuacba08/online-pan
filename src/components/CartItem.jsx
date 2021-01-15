@@ -1,9 +1,16 @@
 import React from 'react';
+import { useContext } from 'react'
+import { CartContext } from '../contexts/CartContext';
 import { priceForQty } from '../helpers/calculationFunctions';
-import ItemCount from './ItemCount';
 import './styles/CartItem.css';
 
-const CartItem = ({bread, breadName, price, stock, qty}) => {
+const CartItem = ({bread, breadName, price, stock, qty, itemID}) => {
+
+    const cartContext = useContext(CartContext);
+
+    const { cart, deleteFromCart } = cartContext;
+
+
     return (
         <div className="cart-item-container">
             <div className="cart-item-container__imagen">
@@ -13,8 +20,9 @@ const CartItem = ({bread, breadName, price, stock, qty}) => {
                 <h2 className="product-name">{breadName}</h2>
                 <span className="price">${price}</span>
                 <div className="buy-options-container">
-                    <ItemCount initial={1} stock = {stock} />
-                    <i className="icon--delete icon"></i>
+                    <p className="item-qty">Cantidad: {qty}</p>
+                    {/* <ItemCount initial={qty} stock = {stock} /> */}
+                    <i className="icon--delete icon" onClick={()=> deleteFromCart(itemID)}></i>
                 </div>
                 <div>
                     <span>${priceForQty(price,qty)}</span>

@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useReducer } from 'react'
 import { CartContext } from '../contexts/CartContext';
 import ItemCount from './ItemCount'
 import ProductReview from './ProductReview'
@@ -6,31 +6,12 @@ import './styles/ItemDetail.css'
 
 const ItemDetail = ({item}) => {
 
-    const [data, setData] = useContext(CartContext);
 
-    const onAdd = (counter) => {
-        const itemSelect = item;
+    const cartContext = useContext(CartContext);
 
-        if (data.items.includes(itemSelect)){
-            setData({
-                ...data, 
-                qty: data.qty + counter,
-            });
-            let itemRepetido = parseInt(data.items.indexOf(itemSelect));
-            data.items[itemRepetido].qty+=counter;
-            console.log(data.items[itemRepetido]);
-        }
-        else{
-        itemSelect.qty = 1;
-        setData({
-            ...data,
-            qty: data.qty + counter,
-            items: [...data.items, itemSelect],
-        });
-        }
-        console.log(data.items);
-    };
-  
+    const { addToCart } = cartContext;
+
+
     return (
         <div className="item-detail-container">
             <div className="item-detail-container__img">
@@ -45,7 +26,8 @@ const ItemDetail = ({item}) => {
                 <ItemCount 
                     stock={item.stock}
                     initial={1}
-                    onAdd={onAdd}
+                    addToCart={ addToCart }
+                    item= { item }
                 />
             </article>
         </div>

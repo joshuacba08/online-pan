@@ -29,6 +29,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.buy-options-container .item-qty {
+    font-size: 1.4rem;
+}
 .icon--delete {
     display: inline-block;
     background-image: url('../../assets/icons/delete-24px.svg');

@@ -2,3 +2,10 @@
     min-height: calc(100vh - 80px);
     width: 100%;
 }
+
+.cart-page-container__title {
+    color: var(--black-leter);
+    font-size: 3.2rem;
+    font-family: 'Gochi Hand', sans-serif;
+    text-align: center;
+}

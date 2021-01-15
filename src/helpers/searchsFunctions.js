@@ -1,5 +1,6 @@
 import {products} from "../data/dataProducts";
 
+
 const getAllProducts = () => {
     return products;
 }

@@ -1,14 +1,22 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 
 import './styles/CartPreview.css'
 
 function CartPreview() {
 
-    const [data, setData] = useContext(CartContext);
+    const cartContext = useContext(CartContext);
 
+    const {cart} = cartContext;
 
+    let totalCart = cart.map(function(product){
+        
+        let numCart = +product.qty;
+        return numCart;
+    });
+
+    
+    console.log(totalCart);
 
     return (
         <div className="cart">
@@ -17,7 +25,7 @@ function CartPreview() {
                 <div className="cart-container__box-cart">
                     <span className="cart-title">MI CARRITO</span>
                     <div className="cart-quantity">
-                        <span className="cart-quantity__count">{data.qty}</span>
+                        <span className="cart-quantity__count">{totalCart}</span>
                     </div>
                 </div>
             </div>

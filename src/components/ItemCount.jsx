@@ -17,13 +17,13 @@ const ItemCount = props => {
     const handleSubtract = () => {
         setCounter(counter - 1);
     }
-    const addCart = () => {
+    // const addCart = () => {
     
-        props.onAdd(counter);
-        // setCounter (props.initial);
-        // if (history.location.pathname.includes("/producto/"))
-        //     history.push("/cart");
-    }
+    //     props.onAdd(counter);
+    //     // setCounter (props.initial);
+    //     // if (history.location.pathname.includes("/producto/"))
+    //     //     history.push("/cart");
+    // }
     
     return (
         <div className="item-count-main">
@@ -33,7 +33,7 @@ const ItemCount = props => {
                 <button onClick={handleAdd} disabled={counter === props.stock ? 'disabled' : null}>+</button>
             </div>
             {history.location.pathname.includes("/producto/")&&<>
-                <button className="add-cart add-cart--detail-page" onClick={addCart}>Añadir al carrito</button>
+                <button className="add-cart add-cart--detail-page" onClick={()=> props.addToCart(props.item.itemID, counter)}>Añadir al carrito</button>
                 {/* <ModalAddCart /> */}
             </>}
 

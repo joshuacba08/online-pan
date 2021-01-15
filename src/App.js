@@ -5,22 +5,17 @@ import Shop from './pages/Shop';
 import Error404 from './pages/Error404';
 import Footer from './components/Footer';
 import ProductDetail from './pages/ProductDetail';
-import { CartContext } from './contexts/CartContext';
+import CartContextProvider from './contexts/CartContext';
 import Cart from './pages/Cart';
 
 import './App.css';
-import { useState } from "react";
+import { useState, useReducer } from "react";
 
 function App() {
-  const [data, setData] = useState({
-    
-    items: [],
-    qty: 0,
-
-  });
 
   return (
-    <CartContext.Provider value ={[data, setData]}>
+    // <CartContext.Provider value ={[state, dispatch]}>
+    <CartContextProvider>
       <BrowserRouter>
         <BarNav />
 
@@ -48,7 +43,7 @@ function App() {
 
         <Footer />
       </BrowserRouter>
-    </CartContext.Provider>    
+    </CartContextProvider>    
   );
 }
 
