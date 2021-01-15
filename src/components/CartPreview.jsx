@@ -1,5 +1,7 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
+import CartMini from './CartMini';
 
 import './styles/CartPreview.css'
 
@@ -9,7 +11,8 @@ function CartPreview() {
 
     const {cart} = cartContext;
 
-    let totalCart = cart.map(function(product){
+    let totalCart = 0;
+    totalCart = cart.map(function(product){
         
         let numCart = +product.qty;
         return numCart;
@@ -21,9 +24,12 @@ function CartPreview() {
     return (
         <div className="cart">
             <div className="cart-container">
-                    <i className="cart-container__icon"></i>
+                {cart.length>0&&<CartMini />}
+                {cart.length === 0 && <i className="cart-container__icon gren"></i>}
                 <div className="cart-container__box-cart">
-                    <span className="cart-title">MI CARRITO</span>
+                    <Link to="/cart">
+                        <span className="cart-title">MI CARRITO</span>
+                    </Link>
                     <div className="cart-quantity">
                         <span className="cart-quantity__count">{totalCart}</span>
                     </div>

@@ -18,9 +18,9 @@ function BarNav () {
             <div className="nav-elements-container">
                 <BarNavMenu />
                 <Search />
-                <Link to="/cart"> 
+                 
                     <CartPreview />
-                </Link>
+
             </div> 
         </header>
     )

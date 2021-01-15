@@ -5,6 +5,38 @@
     padding: 30px 15px;
 }
 
-.cart-item-list-container__item {
+.cart-item-list-container__item {}
+
+.no-bread {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
     
+}
+
+.no-bread__message {
+    font-size: 1.4rem;
+    color: var(--black-leter);
+}
+
+.no-bread__img {
+    text-align: center;
+    min-width: 240px;
+    max-width: 500px;
+}
+
+.no-bread__img img {
+    width: 100%;
+}
+
+.go-to-product {
+    border-radius: 10px;
+    background-color: var(--primary-green);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+    height: 30px;
+    max-width: 200px;
 }

@@ -53,6 +53,12 @@ button {
   cursor: pointer;
 }
 
+.title {
+  font-family: 'Gochi Hand', sans-serif;
+  color: var(--black-leter);
+  text-align: center;
+}
+
 @keyframes slide {
   from {
     top: -100%;
