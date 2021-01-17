@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './styles/Product.css';
 import ProductReview from './ProductReview';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../contexts/CartContext';
 
 function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes}) {
     
     const [button, setbutton] = useState("Añadir al carrito")
+    
+    const cartContext = useContext(CartContext);
+    const { addToCart } = cartContext;
+
     const onAdd = () => {
-        alert(`Agregaste el item ${breadName}`);
+        addToCart(itemID,1)
         if(button==="Añadir al carrito")
         setbutton("Añadido")
     }

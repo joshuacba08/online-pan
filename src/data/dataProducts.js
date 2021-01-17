@@ -11,16 +11,12 @@ import panDulce from "../assets/img/PanDulce.jpg";
 import budin from "../assets/img/Budin.jpg";
 
 
-/*Por el momento no voy a tocar mucho el componente donde tengo los demás productos
-por cuestiones de tiempo, pero la idea sería que todos los productos vayan acá y que
-contengan una propiedad booleana que indique si está en oferta o no. Posteriormente
-pienso subirlo a Firebase*/
 
 export const products = [
     {
         itemID: 1,
         category: 'panaderia',
-        bread: panDeMolde,
+        bread: "https://res.cloudinary.com/dvgro0geg/image/upload/v1610919770/a16cmt8vaztf8unzspzy.jpg",
         breadName: 'Pan de molde',
         price: 200,
         negativeVotes: 30,

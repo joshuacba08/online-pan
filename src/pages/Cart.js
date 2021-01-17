@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+
 import CartItemList from '../components/CartItemList';
 import './styles/Cart.css'
 

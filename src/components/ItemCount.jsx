@@ -17,13 +17,7 @@ const ItemCount = props => {
     const handleSubtract = () => {
         setCounter(counter - 1);
     }
-    // const addCart = () => {
-    
-    //     props.onAdd(counter);
-    //     // setCounter (props.initial);
-    //     // if (history.location.pathname.includes("/producto/"))
-    //     //     history.push("/cart");
-    // }
+
     
     return (
         <div className="item-count-main">

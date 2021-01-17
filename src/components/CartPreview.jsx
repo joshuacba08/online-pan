@@ -11,15 +11,12 @@ function CartPreview() {
 
     const {cart} = cartContext;
 
-    let totalCart = 0;
-    totalCart = cart.map(function(product){
-        
-        let numCart = +product.qty;
-        return numCart;
-    });
+    let sumaTotal =0;
 
-    
-    console.log(totalCart);
+    for (let index = 0; index < cart.length; index++) {
+         sumaTotal += cart[index].qty;        
+    }
+
 
     return (
         <div className="cart">
@@ -31,7 +28,7 @@ function CartPreview() {
                         <span className="cart-title">MI CARRITO</span>
                     </Link>
                     <div className="cart-quantity">
-                        <span className="cart-quantity__count">{totalCart}</span>
+                        <span className="cart-quantity__count">{sumaTotal}</span>
                     </div>
                 </div>
             </div>
