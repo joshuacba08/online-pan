@@ -15,7 +15,7 @@ const CartItemList = () => {
     const goToProduct = () => {
         history.push("/shop");
     }
-
+    console.log('minicart');
     console.log(cart);
 
     return (
@@ -27,9 +27,9 @@ const CartItemList = () => {
                             cart.map((product) => {
                                 return <div className="cart-item-list-container__item" key={product.itemID}>
                                     <CartItem
-                                        itemID={product.itemID}
-                                        bread={product.bread}
-                                        breadName={product.breadName}
+                                        itemID={product.id}
+                                        bread={product.image}
+                                        breadName={product.productName}
                                         price={product.price}
                                         stock={product.stock}
                                         qty = {product.qty}

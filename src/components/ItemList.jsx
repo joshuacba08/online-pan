@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Product from './Product';
 import './styles/ItemList.css'
-import { getItems } from '../helpers/getItems';
+// import { getItemsFromFirebase, getItems} from '../helpers/getItems';
+// import { getAllProducts } from '../helpers/searchsFunctions';
 import loading from '../assets/img/toriPan.gif' 
-const ItemList = ({searchFunction,condition}) => {
+
+const ItemList = ({ searchFunction, field, value }) => {
 
     const [items, setItems] = useState(null);
-
     useEffect(() => {
-        getItems(condition, searchFunction).then(response => setItems(response));
-    },);
+      searchFunction(field, value).then(response => setItems(response));
+      // getItemsFromFirebase()
+      //   .then(response => setItems(response))
+      //   .catch(error => console.log(error))
+    },[searchFunction,field,value]);
 
     return (
         <>
@@ -18,15 +22,16 @@ const ItemList = ({searchFunction,condition}) => {
               <div className="item-list-container">
               {
                 items.map((product)=>{
-                    return <div className="item-list-container__item" key={product.itemID}>
+
+                    return <div className="item-list-container__item" key={product.id}>
                                 <Product 
-                                    itemID = {product.itemID}
-                                    bread={product.bread}
-                                    breadName={product.breadName}
-                                    price={product.price}
-                                    negativeVotes={product.negativeVotes}
-                                    positiveVotes={product.positiveVotes}
-                                    stock={product.stock}
+                                    itemID = {product.id}
+                                    bread={product.data.image}
+                                    breadName={product.data.productName}
+                                    price={product.data.price}
+                                    negativeVotes={product.data.negativeVotes}
+                                    positiveVotes={product.data.positiveVotes}
+                                    stock={product.data.stock}
                                 />
                             </div>
                 })

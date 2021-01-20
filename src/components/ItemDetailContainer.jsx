@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { getItems } from "../helpers/getItems";
 import ItemDetail from './ItemDetail';
 
-const ItemDetailContainer = ({ searchFunction, condition }) => {
+const ItemDetailContainer = ({ searchFunction, field, value }) => {
 
     const [product, setProduct] = useState(null);
     
     useEffect(() => {
-        getItems(condition,searchFunction).then(response => setProduct(response))
-    }, []);
+        searchFunction(field,value).then(response => setProduct(response))
+    }, [searchFunction, field, value]);
+    console.log(field);
+    console.log(product);
 
     return (
         <>  {
                 product?
                 <>
-                    {!Array.isArray(product) && <ItemDetail item={product} />}
-                    {product.length > 1 && <ItemDetail item={product[0]} />}
+                    {!Array.isArray(product) && <ItemDetail item={product} id= { value } />}
+                    {product.length > 1 && <ItemDetail item={product[0].data} id = { value } />}
                 </> :
                 <>
                     <p className="loading">Cargando producto</p>

@@ -1,10 +1,10 @@
-import { useContext, useReducer } from 'react'
+import { useContext } from 'react'
 import { CartContext } from '../contexts/CartContext';
 import ItemCount from './ItemCount'
 import ProductReview from './ProductReview'
 import './styles/ItemDetail.css'
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({ item, id }) => {
 
 
     const cartContext = useContext(CartContext);
@@ -15,10 +15,10 @@ const ItemDetail = ({item}) => {
     return (
         <div className="item-detail-container">
             <div className="item-detail-container__img">
-                <img src={item.bread} alt="imagen del producto en oferta"/>
+                <img src={item.image} alt="imagen del producto en oferta"/>
             </div>
             <article className="item-detail-container__detail">
-                <h2 className="product-name">{item.breadName}</h2>
+                <h2 className="product-name">{item.productName}</h2>
                 <span className="price">${item.price}</span>
                 <ProductReview negativeVotes={item.negativeVotes} positiveVotes={item.positiveVotes} />
                 
@@ -28,6 +28,7 @@ const ItemDetail = ({item}) => {
                     initial={1}
                     addToCart={ addToCart }
                     item= { item }
+                    id = { id }
                 />
             </article>
         </div>

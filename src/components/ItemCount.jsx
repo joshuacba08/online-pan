@@ -4,12 +4,12 @@ import { useHistory } from 'react-router-dom';
 import './styles/ItemCount.css';
 
 
-const ItemCount = props => {
+const ItemCount = ({ stock, initial, addToCart, item, id }) => {
 
     let history = useHistory();
 
     
-    const [counter, setCounter] = useState(props.initial);
+    const [counter, setCounter] = useState(initial);
 
     const handleAdd = () => {
         setCounter(counter + 1);
@@ -24,10 +24,10 @@ const ItemCount = props => {
             <div className ="count-container">
                 <button onClick={handleSubtract} disabled={counter===1 ? 'disabled' : null}>-</button>
                 <span className="count-container__number">{ counter }</span>
-                <button onClick={handleAdd} disabled={counter === props.stock ? 'disabled' : null}>+</button>
+                <button onClick={handleAdd} disabled={counter === stock ? 'disabled' : null}>+</button>
             </div>
             {history.location.pathname.includes("/producto/")&&<>
-                <button className="add-cart add-cart--detail-page" onClick={()=> props.addToCart(props.item.itemID, counter)}>Añadir al carrito</button>
+                <button className="add-cart add-cart--detail-page" onClick={()=> addToCart(id, counter)}>Añadir al carrito</button>
                 {/* <ModalAddCart /> */}
             </>}
 

@@ -1,5 +1,6 @@
 import React, {createContext, useState, useEffect } from 'react';
 import { dataProducts } from '../data/dataProducts';
+import { getAllProducts, getProductById } from '../helpers/searchsFunctions';
 
 export const CartContext = createContext();
 
@@ -8,29 +9,31 @@ const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [products, setProducts] = useState([]);
 
-    const addToCart = (productId,productQty) => {
+    const addToCart = async (productId,productQty) => {
 
-        const prodAlCart = products.filter(prod => prod.itemID === productId)[0];
-        if (!prodAlCart.qty) {
+        let prodAlCart; 
+        await getProductById(null, productId).then(response => prodAlCart = response);
+            if(!prodAlCart.qty) {
             console.log("funciona en true");
             prodAlCart.qty= productQty;
             setCart([...cart, prodAlCart]);
         } else {
             cart[cart.indexOf(prodAlCart)].qty += productQty;
             setCart([...cart]);
+            console.log('entró en el else')
         }
 
     };
 
     const deleteFromCart = productId => {
 
-        const cartWithoutProd = cart.filter(prod => prod.itemID !== productId);
+        const cartWithoutProd = cart.filter(prod => prod.id !== productId);
         setCart(cartWithoutProd);
 
     };
 
     useEffect( ()=> {
-        setProducts(dataProducts);
+        getAllProducts().then(response => setProducts(response));
         console.log("Productos: ");
         console.log(products);
         console.log("carrito: ");

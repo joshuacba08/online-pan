@@ -13,11 +13,13 @@ function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes}) {
     const cartContext = useContext(CartContext);
     const { addToCart } = cartContext;
 
+
     const onAdd = () => {
         addToCart(itemID,1)
         if(button==="Añadir al carrito")
         setbutton("Añadido")
     }
+
     return (
         <article>
             <div className="img-container">
@@ -40,7 +42,7 @@ function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes}) {
 }
 
 Product.propTypes = {   
-    bread: PropTypes.elementType.isRequired,
+    bread: PropTypes.string.isRequired,
     breadName: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
 }

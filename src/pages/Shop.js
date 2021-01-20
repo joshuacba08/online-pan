@@ -1,7 +1,7 @@
 import React from 'react'
 import ItemList from '../components/ItemList'
 import './styles/Shop.css';
-import { getAllProducts, getProductByCategory} from '../helpers/searchsFunctions';
+import { getAllProducts, getProductBy} from '../helpers/searchsFunctions';
 import { useParams } from 'react-router-dom';
 
 const Shop = () => {
@@ -17,11 +17,13 @@ const Shop = () => {
                     <ItemList
                         searchFunction={getAllProducts}
                         condition={null}
+                        
                     />
                 </>:
                     <ItemList
-                        searchFunction={getProductByCategory}
-                        condition={name_category}
+                        searchFunction={ getProductBy }
+                        field={ "category" }
+                        value={ name_category }
                     />
             }
         </section>

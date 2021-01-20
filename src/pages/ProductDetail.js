@@ -12,8 +12,9 @@ const ProductDetail = () => {
     return (
         <section className="product-detail-container">  
             <ItemDetailContainer 
-                searchFunction = {getProductById}
-                condition = {id}
+                searchFunction = { getProductById }
+                field = { "id" }
+                value = { id }
             />
         </section>
     )

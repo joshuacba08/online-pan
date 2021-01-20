@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemList from './ItemList';
 import  './styles/ItemListContainer.css';
-import { getSpecificQuantity } from '../helpers/searchsFunctions';
+import { getAllProducts } from '../helpers/searchsFunctions';
 
 function ItemListContainer() {
     
@@ -11,8 +11,7 @@ function ItemListContainer() {
             <p className="item-container__paragraph">Elegí entre una gran variedad de panes</p>
             <div className="product-container">
                 <ItemList 
-                    searchFunction = {getSpecificQuantity}
-                    condition = {3}
+                    searchFunction = { getAllProducts }
                 />
             </div>
         </section>
