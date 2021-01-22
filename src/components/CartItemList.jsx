@@ -19,21 +19,22 @@ const CartItemList = () => {
     console.log(cart);
 
     return (
-        <div>
+        <>
             {
                 cart.length>0 ?
                     <div className="cart-item-list-container">
                         {
                             cart.map((product) => {
-                                return <div className="cart-item-list-container__item" key={product.itemID}>
+                                return <div className="cart-item-list-container__item" key={product.id}>
                                     <CartItem
                                         itemID={product.id}
-                                        bread={product.image}
-                                        breadName={product.productName}
-                                        price={product.price}
-                                        stock={product.stock}
+                                        bread={product.data.image}
+                                        breadName={product.data.productName}
+                                        price={product.data.price}
+                                        stock={product.data.stock}
                                         qty = {product.qty}
-                                        item = {product}
+                                        priceSubTotal = {product.priceSubTotal}
+                                        // item = {product}
                                     />
                                 </div>
                             })
@@ -49,7 +50,7 @@ const CartItemList = () => {
                     </div>
 
             }
-        </div>
+        </>
     )
 }
 

@@ -3,7 +3,7 @@ import '@firebase/firestore';
 
 const app = firebase.initializeApp({
 
-    apiKey: "AIzaSyACtYLzPaHRgee7bcEbXTGcjmlbDdFYmtg",
+    apiKey: process.env.API_KEY,
     authDomain: "online-pan.firebaseapp.com",
     projectId: "online-pan",
     storageBucket: "online-pan.appspot.com",

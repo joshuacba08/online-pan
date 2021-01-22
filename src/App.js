@@ -7,9 +7,10 @@ import Footer from './components/Footer';
 import ProductDetail from './pages/ProductDetail';
 import CartContextProvider from './contexts/CartContext';
 import Cart from './pages/Cart';
+import Checkout from "./pages/Checkout";
 
 import './App.css';
-import { useState, useReducer } from "react";
+
 
 function App() {
 
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
 
           <Route path="*">

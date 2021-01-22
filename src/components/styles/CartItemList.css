@@ -3,9 +3,19 @@
     grid-template: auto / 1fr;
     gap: 20px;
     padding: 30px 15px;
+    width: 90%;
+    min-width: 320px;
+    max-width: 620px;
 }
 
-.cart-item-list-container__item {}
+.cart-item-list-container__item {
+    width: 100%;
+}
+
+.cart-item-list__line {
+    margin: 10px 0;
+    color: var(--secondary-green);
+} 
 
 .no-bread {
     display: flex;

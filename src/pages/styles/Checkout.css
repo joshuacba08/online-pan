@@ -1,0 +1,10 @@
+.checkout {
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 126.44px);
+
+}
+
+.title--checkout{
+    font-size: 2.4rem;
+}

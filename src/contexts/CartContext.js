@@ -1,6 +1,5 @@
 import React, {createContext, useState, useEffect } from 'react';
-import { dataProducts } from '../data/dataProducts';
-import { getAllProducts, getProductById } from '../helpers/searchsFunctions';
+import { getAllProducts, getProductById, getProductByIdPrueba } from '../helpers/searchsFunctions';
 
 export const CartContext = createContext();
 
@@ -8,19 +7,23 @@ const CartContextProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
     const [products, setProducts] = useState([]);
+    const [subTotal, setSubTotal] = useState(0);
 
     const addToCart = async (productId,productQty) => {
 
         let prodAlCart; 
-        await getProductById(null, productId).then(response => prodAlCart = response);
-            if(!prodAlCart.qty) {
-            console.log("funciona en true");
+        await getProductByIdPrueba(null, productId).then(response => prodAlCart = response);
+            if(!cart.some(product => product.id === prodAlCart.id)) {
             prodAlCart.qty= productQty;
+            prodAlCart.priceSubTotal = productQty * prodAlCart.data.price; 
             setCart([...cart, prodAlCart]);
+            setSubTotal(subTotal+prodAlCart.priceSubTotal);
         } else {
-            cart[cart.indexOf(prodAlCart)].qty += productQty;
+                let productDetected = cart[cart.findIndex(product => product.id === prodAlCart.id)]
+                productDetected.qty += productQty;
+                productDetected.priceSubTotal = productDetected.qty * prodAlCart.data.price; 
             setCart([...cart]);
-            console.log('entró en el else')
+                setSubTotal(subTotal + (productQty*prodAlCart.data.price));
         }
 
     };
@@ -29,23 +32,25 @@ const CartContextProvider = ({ children }) => {
 
         const cartWithoutProd = cart.filter(prod => prod.id !== productId);
         setCart(cartWithoutProd);
+        let productDetected = cart[cart.findIndex(product => product.id === productId)]
+        setSubTotal(subTotal - productDetected.priceSubTotal)
 
     };
 
     useEffect( ()=> {
         getAllProducts().then(response => setProducts(response));
-        console.log("Productos: ");
-        console.log(products);
-        console.log("carrito: ");
         console.log(cart);
-    }, [cart])
+        console.log(subTotal);
+    }, [cart, subTotal])
 
     return (
         <CartContext.Provider
         
             value={{
                 cart,
+                setCart,
                 products,
+                subTotal,
                 addToCart,
                 deleteFromCart
             }}

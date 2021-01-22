@@ -67,21 +67,6 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.continue-buy {
-    border-bottom: 1px solid var(--primary-green);
-    align-self: center;
-    color: var(--primary-green);
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-top: 10px;
-    width: 160px;
-}
-
-.continue-buy:hover {
-    color: var(--secondary-green);
-    border-bottom: none;
-    transition: all ease-in 100ms;
-}
 
 /* .modal {
     background: white;

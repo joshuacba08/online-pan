@@ -63,6 +63,32 @@ button {
   text-align: center;
 }
 
+h3 {
+  font-family: 'Gochi Hand', sans-serif;
+  color: var(--black-leter);
+  font-size: 2rem;
+}
+
+li {
+  list-style: none;
+}
+
+.continue-buy {
+  border-bottom: 1px solid var(--primary-green);
+  align-self: center;
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 160px;
+}
+
+.continue-buy:hover {
+  color: var(--secondary-green);
+  border-bottom: none;
+  transition: all ease-in 100ms;
+}
+
 @keyframes slide {
   from {
     top: -100%;

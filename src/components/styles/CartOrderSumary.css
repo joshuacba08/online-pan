@@ -1,0 +1,74 @@
+.cart-order-sumary {
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    max-height: 420px;
+    max-width: 420px;
+}
+
+.cart-order-sumary__container {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    width: 80%;
+    max-width: 520px;
+    padding: 10px;
+    background-color: #f7f7ee;
+}
+
+.cart-order-sumary__title {
+    display: flex;
+    min-width: 290px;
+    max-width: 520px;
+}
+
+.title--subtotal {
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.title--discounts {
+    justify-content: start;
+}
+
+.discounts-list {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    font-weight: 300;
+    min-width: 290px;
+    max-width: 520px;
+}
+
+.title--total {
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-order-sumary__line {
+    margin: 10px 0;
+}
+
+.button-buy {
+    border-radius: 10px;
+    background-color: var(--primary-green);
+    font-weight: 600;
+    color: white;
+    width: 90%;
+    height: 30px;
+    margin-top: auto;
+    align-self: center;
+}
+
+.button-buy:hover {
+    transition: all ease-in 100ms;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button-buy:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

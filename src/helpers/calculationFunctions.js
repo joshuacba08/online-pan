@@ -1,8 +1,8 @@
 
-const priceForQty = (price,qty) => {
-    return  price*qty;
+const priceTotal = (subTotal,others) => {
+    return  subTotal+others;
 }
 
 export {
-    priceForQty,
+    priceTotal,
 }

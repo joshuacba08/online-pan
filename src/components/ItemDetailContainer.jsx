@@ -8,8 +8,7 @@ const ItemDetailContainer = ({ searchFunction, field, value }) => {
     useEffect(() => {
         searchFunction(field,value).then(response => setProduct(response))
     }, [searchFunction, field, value]);
-    console.log(field);
-    console.log(product);
+
 
     return (
         <>  {

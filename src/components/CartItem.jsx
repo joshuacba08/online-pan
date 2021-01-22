@@ -5,7 +5,7 @@ import { priceForQty } from '../helpers/calculationFunctions';
 
 import './styles/CartItem.css';
 
-const CartItem = ({bread, breadName, price, stock, qty, itemID}) => {
+const CartItem = ({bread, breadName, price, stock, qty, itemID, priceSubTotal}) => {
 
     const cartContext = useContext(CartContext);
 
@@ -27,7 +27,7 @@ const CartItem = ({bread, breadName, price, stock, qty, itemID}) => {
                         <i className="icon--delete icon" onClick={()=> deleteFromCart(itemID)}></i>
                     </div>
                     <div>
-                        <span>${priceForQty(price,qty)}</span>
+                        <span>${priceSubTotal}</span>
                     </div>
                 </div>
             </div>

@@ -44,6 +44,19 @@ const getProductById = (field, value) => {
     });
 }
 
+const getProductByIdPrueba = (field, value) => {
+    return new Promise((resolve, reject) => {
+        db.collection('productos').doc(value).get()
+            .then(doc => {
+                if (doc.exists) {
+                    let product = {id: doc.id, data: doc.data()}
+                    resolve(product);
+                }
+            })
+            .catch(e => console.log(e));
+    });
+}
+
 // const getSpecificQuantity = (quantity) => products.filter((product) => product.itemID <= quantity); 
 
 // const getProductById = (id) => products.find((product) => product.itemID === parseInt(id)); 
@@ -55,5 +68,6 @@ export {
     getAllProducts,
     getProductBy,
     getProductById,
+    getProductByIdPrueba,
 
 }
