@@ -29,6 +29,7 @@
     min-width: 290px;
     background-color: var(--just-white);
     padding: 10px;
+    overflow: auto;
 }
 
 .mini-cart__title {
@@ -37,4 +38,3 @@
     color: var(--black-leter);
     text-align: center;
 }
-

@@ -13,7 +13,7 @@ const CartMini = () => {
             <>
             {showMini===true&&
             <>
-                <i className="cart-container__icon" onClick={ changeState }></i>  
+                <i className="cart-container__icon icon" onClick={ changeState }></i>  
                 <section className="mini-cart">
                     <div className="mini-cart-container">
                         <i className="icon--close icon" onClick={changeState}></i>

@@ -32,6 +32,12 @@ body {
   min-width: 320px;
 }
 
+.background-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .icon {
   background-size: cover;
   background-position: center;
@@ -95,5 +101,25 @@ li {
   }
   to {
     top: 0;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  8% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
   }
 }
