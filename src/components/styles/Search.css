@@ -13,6 +13,7 @@
 
 .search-container {
     display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, .6);
@@ -64,4 +65,10 @@
 
 .form-search__button i {
     fill: #999;
+}
+
+.result-box{
+    min-width: 320px;
+    min-height: 520px;
+    background-color: red;
 }

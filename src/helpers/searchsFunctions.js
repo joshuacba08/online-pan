@@ -1,4 +1,3 @@
-import {products} from "../data/dataProducts";
 import { getFirestore } from '../data/importData';
 
 const db = getFirestore();
@@ -57,6 +56,13 @@ const getProductByIdPrueba = (field, value) => {
     });
 }
 
+const getProductByName = (value, bbdd) => {
+    return new Promise((resolve, reject) => {
+        const result = bbdd.filter(product => product.productName.includes(value));
+        resolve(result);
+    });
+}
+
 // const getSpecificQuantity = (quantity) => products.filter((product) => product.itemID <= quantity); 
 
 // const getProductById = (id) => products.find((product) => product.itemID === parseInt(id)); 
@@ -69,5 +75,6 @@ export {
     getProductBy,
     getProductById,
     getProductByIdPrueba,
+    getProductByName,
 
 }

@@ -5,7 +5,7 @@ import './styles/ItemList.css'
 // import { getAllProducts } from '../helpers/searchsFunctions';
 import loading from '../assets/img/toriPan.gif' 
 
-const ItemList = ({ searchFunction, field, value }) => {
+const ItemList = ({ searchFunction, field, value, }) => {
 
     const [items, setItems] = useState(null);
     useEffect(() => {
