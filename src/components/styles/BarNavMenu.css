@@ -68,10 +68,6 @@ nav {
     overflow: hidden;
 }
 
-/* .main-nav li:nth-child(2):hover .dropdown-menu, .dropdown-menu:hover {
-    display: block;
-} */
-
 .dropdown-menu ul {
     padding: 10px 0;
     list-style: none;
@@ -103,3 +99,9 @@ nav {
     margin-left: 5px;
     background-image: url("/src/assets/icons/down-arrow.svg");
 }
+
+.icon-menu__close {
+    top: 8px;
+    position: absolute;
+}
+

@@ -24,6 +24,9 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route path="/shop/result/:query?">
+            <Shop />
+          </Route>
           <Route path="/shop/:name_category?">
             <Shop />
           </Route>

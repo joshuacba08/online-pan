@@ -1,0 +1,41 @@
+.control-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    height: 50px;
+    background-color: var(--off-white);
+}
+
+.control-buttons {
+    display: flex;
+    padding-right: 5px;
+}
+
+.icon--grid {
+    background-image: url('../../assets/icons/grid_view-24px.svg');
+}
+
+.icon--list {
+    background-image: url('../../assets/icons/format_list_bulleted-24px.svg');
+}
+
+.button-style {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    margin-left: 10px;
+}
+
+.control-container__title {
+    margin-left: 10px;
+    font-size: 1.6rem;
+}
+
+.icon-no-selected {
+    background-color: var(--primary-green);
+}
+
+.icon-selected {
+    background-color: var(--melon-orange);
+}

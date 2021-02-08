@@ -95,6 +95,25 @@ li {
   transition: all ease-in 100ms;
 }
 
+.box-error {
+  background-color: rgba(254, 202, 202);
+  color: rgba(185, 28, 28);
+  border-radius: 5px;
+  border: 1px solid red;
+  padding: 5px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  ;
+}
+
+.shadow {
+  box-shadow: 4px 5px 16px 4px rgba(0, 0, 0, 0.1);
+}
+
 @keyframes slide {
   from {
     top: -100%;
@@ -103,7 +122,6 @@ li {
     top: 0;
   }
 }
-
 
 @keyframes zoom {
   0% {

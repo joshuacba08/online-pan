@@ -3,20 +3,29 @@
     height: calc(100vh - 80px);
     flex-direction: column;
     justify-content: center;
-    
 }
+
 .loading {
     font-size: 3rem;
     color: #999999;
     text-align: center;
 }
 
-.item-list-container {
+.item-list-container--grid {
+    width: 100%;
     display: grid;
-    grid-template: auto / repeat(3, 270px);
-    gap: 30px;
-    grid-auto-columns: repeat(3, 270px);
-    grid-auto-rows: auto;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 270px);
+    gap: 20px;
+    padding: 20px;
+}
+
+.item-list-container--list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px;
+    overflow: auto;
 }
 
 .item-list-container__item {

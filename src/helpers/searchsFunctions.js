@@ -58,7 +58,9 @@ const getProductByIdPrueba = (field, value) => {
 
 const getProductByName = (value, bbdd) => {
     return new Promise((resolve, reject) => {
-        const result = bbdd.filter(product => product.productName.includes(value));
+        const result = bbdd.filter(product => product.data.productName.includes(value));
+        console.log('lo que paso en la función')
+        console.log(bbdd)
         resolve(result);
     });
 }

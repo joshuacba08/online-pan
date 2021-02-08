@@ -1,0 +1,26 @@
+.control {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: var(--primary-green);
+    margin-left: 10px;
+}
+
+.control--left-row {
+    background-image: url('../../assets/icons/arrow_right_alt-24px.svg');
+    transform: rotate(180deg);
+}
+
+.control--right-row {
+    background-image: url('../../assets/icons/arrow_right_alt-24px.svg');
+}
+
+.control--left-row:active {
+    transform: translateY(1px) rotate(180deg);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.control--right-row:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

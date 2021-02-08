@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect } from 'react';
-import { getAllProducts, getProductById, getProductByIdPrueba } from '../helpers/searchsFunctions';
+import { getAllProducts, getProductByIdPrueba } from '../helpers/searchsFunctions';
 
 export const CartContext = createContext();
 
@@ -8,6 +8,7 @@ const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [products, setProducts] = useState([]);
     const [subTotal, setSubTotal] = useState(0);
+    const [limitStock, setLimitStock] = useState(false);
 
     const addToCart = async (productId,productQty) => {
 
@@ -19,11 +20,22 @@ const CartContextProvider = ({ children }) => {
             setCart([...cart, prodAlCart]);
             setSubTotal(subTotal+prodAlCart.priceSubTotal);
         } else {
-                let productDetected = cart[cart.findIndex(product => product.id === prodAlCart.id)]
-                productDetected.qty += productQty;
-                productDetected.priceSubTotal = productDetected.qty * prodAlCart.data.price; 
-            setCart([...cart]);
-                setSubTotal(subTotal + (productQty*prodAlCart.data.price));
+                let productDetected = cart[cart.findIndex(product => product.id === prodAlCart.id)];
+                if(productDetected.qty<productDetected.data.stock){
+                    productDetected.qty += productQty;
+                    productDetected.priceSubTotal = productDetected.qty * prodAlCart.data.price;
+                    setCart([...cart]);
+                    setSubTotal(subTotal + (productQty * prodAlCart.data.price));
+                    console.log('Despues de sumar')
+                    console.log(subTotal);
+                    setLimitStock(false);
+                } else
+                    {   
+                        setLimitStock(true);
+                        console.log(subTotal);
+                        return console.log('Stock agotado')
+                    }
+            
         }
 
     };
@@ -33,6 +45,10 @@ const CartContextProvider = ({ children }) => {
         const cartWithoutProd = cart.filter(prod => prod.id !== productId);
         setCart(cartWithoutProd);
         let productDetected = cart[cart.findIndex(product => product.id === productId)]
+        console.log('el subtotal')
+        console.log(subTotal);
+        console.log('lo que se va a restar')
+        console.log(productDetected.subTotal);
         setSubTotal(subTotal - productDetected.priceSubTotal)
 
     };
@@ -52,7 +68,9 @@ const CartContextProvider = ({ children }) => {
                 products,
                 subTotal,
                 addToCart,
-                deleteFromCart
+                deleteFromCart,
+                limitStock,
+                setLimitStock,
             }}
 
         >

@@ -16,6 +16,7 @@ const BarNavMenu = () => {
             {showMenu===true&&
                 <nav>
                     <ul className="main-nav">
+                    <i className="icon--close icon icon-menu__close" onClick={ changeState }></i>
                         <li>
                             <NavLink exact to='/' activeClassName="selected" className="no-selected" onClick={changeState}>INICIO</NavLink>
                         </li>

@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import Product from './Product';
 import './styles/ItemList.css'
-// import { getItemsFromFirebase, getItems} from '../helpers/getItems';
-// import { getAllProducts } from '../helpers/searchsFunctions';
 import loading from '../assets/img/toriPan.gif' 
 
-const ItemList = ({ searchFunction, field, value, }) => {
+const ItemList = ({ searchFunction, field, value, bbdd, display}) => {
 
     const [items, setItems] = useState(null);
+
     useEffect(() => {
-      searchFunction(field, value).then(response => setItems(response));
-      // getItemsFromFirebase()
-      //   .then(response => setItems(response))
-      //   .catch(error => console.log(error))
-    },[searchFunction,field,value]);
+      //Si field es distinto de null entonces va a buscar por campo
+      field!==null && searchFunction(field, value).then(response => setItems(response));
+      bbdd && searchFunction(value, bbdd).then(response => setItems(response));
+      
+    },[searchFunction,field,value,bbdd]);
+    
+
 
     return (
         <>
           {
               items? 
-              <div className="item-list-container">
+              <div className={`item-list-container--${display}`}>
               {
                 items.map((product)=>{
 
@@ -32,6 +33,7 @@ const ItemList = ({ searchFunction, field, value, }) => {
                                     negativeVotes={product.data.negativeVotes}
                                     positiveVotes={product.data.positiveVotes}
                                     stock={product.data.stock}
+                                    display={ display }
                                 />
                             </div>
                 })

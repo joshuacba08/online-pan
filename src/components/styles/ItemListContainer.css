@@ -21,6 +21,8 @@
 
 .product-container {
     display: flex;
+    width: 100%;
+    max-width: 1300px;
     justify-content: center;
     margin: 40px 0;
 }

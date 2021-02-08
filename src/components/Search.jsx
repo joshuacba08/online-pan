@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../contexts/CartContext';
-import './styles/Search.css'
+import ItemList from './ItemList';
+import {getProductByName} from '../helpers/searchsFunctions';
+import './styles/Search.css';
+import { NavLink } from 'react-router-dom';
 
 function Search() {
 
@@ -12,8 +15,6 @@ function Search() {
     const changeState = () => {
         setShow(!show);
     }
-    console.log('query');
-    console.log(products);
 
     if (show) {
 
@@ -27,15 +28,25 @@ function Search() {
                             placeholder="Buscá entre nuestros productos" 
                             value={query}
                             onChange={ (e)=> {
-                                setQuery(e.target.value);
+                                setQuery(e.target.value.toLowerCase());
                             }}
                         />
-                        <button className="form-search__button">
-                            <i className="search-icon"></i>
-                        </button>
+                        <NavLink to={`/shop/result/${query}`}
+                            className="no-selected"
+                            onClick={changeState}>
+                                <button className="form-search__button">
+                                    <i className="search-icon"></i>
+                                </button>
+                            </NavLink>
                     </form>
                 </div>
-                {query&&<div className="result-box">Estás buscando {query}</div>}
+                {query&&<ItemList 
+                            searchFunction={ getProductByName }
+                            field={ null }
+                            value={ query }
+                            bbdd={ products }
+                            display= { 'list' }
+                />}
             </section>
         );
     } else {

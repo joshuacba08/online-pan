@@ -12,6 +12,7 @@ function ItemListContainer() {
             <div className="product-container">
                 <ItemList 
                     searchFunction = { getAllProducts }
+                    display = {'grid'}
                 />
             </div>
         </section>

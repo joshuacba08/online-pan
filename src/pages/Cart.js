@@ -11,6 +11,9 @@ const Cart = () => {
 
     const { cart, subTotal } = cartContext;
 
+    console.log('El subtotal en el cart');
+    console.log(subTotal);
+
     return (
         <div className="cart-page-container">
             <h2 className="cart-page-container__title">Carrito de compras</h2>

@@ -3,12 +3,17 @@ import { CartContext } from '../contexts/CartContext';
 import { getFirestore } from '../data/importData'
 import firebase from 'firebase/app';
 import useForm from '../Hooks/useForm';
+import validator from 'validator';
 
 import './styles/CheckoutForm.css';
 
 const CheckoutForm = () => {
-
+    //obtención de datos
     const db = getFirestore();
+
+    //validación del formulario
+    const [error, setError] = useState(false);
+    const [errMessage, setErrMessage] = useState('');
 
     const cartContext = useContext(CartContext);
     const { cart, setCart, subTotal } = cartContext;
@@ -33,21 +38,52 @@ const CheckoutForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        db.collection('ventas').add(compra)
-            .then(({ id }) => {
-                completoVenta(true);
-                setIdCompra(id);
-                setCart([]);
-                console.log(id);
-            })
-            .catch(e => console.log(e));
+        if( isFormValid() ){
+
+            db.collection('ventas').add(compra)
+                .then(({ id }) => {
+                    completoVenta(true);
+                    setIdCompra(id);
+                    setCart([]);
+                    console.log(id);
+                })
+                .catch(e => console.log(e));
+
+        }
+    }
+
+    const isFormValid = () => {
+
+        if(name.trim().length === 0) {
+            setError(true);
+            setErrMessage('Es necesario que ingreses tu nombre');
+            return false;
+        } else if (lastName.trim().length === 0) {
+            setError(true);
+            setErrMessage('Es necesario que ingreses tu apellido');
+            return false;
+        } else if ( !validator.isEmail( email ) ) {
+            setError(true);
+            setErrMessage('Es necesario que ingreses un mail válido');
+            return false;
+        } else if( !validator.isMobilePhone( telephone ) ) {
+            setError(true);
+            setErrMessage('Es necesario que ingreses un teléfono válid');
+            return false;
+        }
+
+        return true;
     }
 
     return (
         <>{
             !venta?
-            <form onSubmit={handleSubmit} className="checkout-form">
+            <form onSubmit={handleSubmit} className="checkout-form shadow">
                 <h3>Ingresa tus datos</h3>
+
+                {
+                    error && <div className="box-error">*{errMessage}</div>
+                }
 
                 <div className="form-group">
                     <input

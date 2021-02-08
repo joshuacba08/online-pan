@@ -17,7 +17,6 @@
     filter: brightness(0.8);
 }
 
-
 .hero__content {
     position: absolute;
     display: flex;
@@ -54,10 +53,42 @@
     height: 50px;
     outline: none;
     width: 140px;
-    transition: box-shadow .4s;
+    box-shadow: 0 0 0 rgba(88, 120, 243, 0.4);
+    animation: pulseAnim 2s infinite;
 }
 
-.hero__button:hover {
-    box-shadow: 0 3px 6px var(--black-of-8);
-    text-decoration: none;
+.swipe {
+    fill: hsl(243, 80%, 62%);
+    animation: arrowAnimation 1.5s infinite ease-out;
+}
+
+@keyframes pulseAnim {
+    0% {
+        box-shadow: 0 0 0 0 rgba(23, 112, 110, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(88, 120, 243, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(88, 120, 243, 0);
+    }
+}
+
+
+@keyframes arrowAnimation {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0
+    }
+    30% {
+        opacity: 1
+    }
+    60% {
+        opacity: 1
+    }
+    to {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+        opacity: 0
+    }
 }

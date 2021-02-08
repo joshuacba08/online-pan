@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './styles/ItemCount.css';
 
 
-const ItemCount = ({ stock, initial, addToCart, item, id }) => {
+const ItemCount = ({ stock, initial, addToCart, id }) => {
 
     let history = useHistory();
 
@@ -26,10 +26,9 @@ const ItemCount = ({ stock, initial, addToCart, item, id }) => {
                 <span className="count-container__number">{ counter }</span>
                 <button onClick={handleAdd} disabled={counter === stock ? 'disabled' : null}>+</button>
             </div>
-            {history.location.pathname.includes("/producto/")&&<>
+
                 <button className="add-cart add-cart--detail-page" onClick={()=> addToCart(id, counter)}>Añadir al carrito</button>
                 {/* <ModalAddCart /> */}
-            </>}
 
         </div>
     )
