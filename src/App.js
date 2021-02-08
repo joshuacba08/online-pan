@@ -15,7 +15,6 @@ import './App.css';
 function App() {
 
   return (
-    // <CartContext.Provider value ={[state, dispatch]}>
     <CartContextProvider>
       <BrowserRouter>
         <BarNav />

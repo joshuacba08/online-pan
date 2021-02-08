@@ -17,10 +17,10 @@ function Hero() {
                     </svg>
                 </div>
                 <NavLink to='/shop'>
-                    <button className="hero__button">Comprar ahora</button> 
+                    <button className="hero__button">Comprar ahora</button>
                 </NavLink>
-            </div>       
-        </section>    
+            </div>
+        </section>
     );
 }
 

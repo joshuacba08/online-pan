@@ -15,13 +15,12 @@ const CartItemList = () => {
     const goToProduct = () => {
         history.push("/shop");
     }
-    console.log('minicart');
-    console.log(cart);
+
 
     return (
         <>
             {
-                cart.length>0 ?
+                cart.length > 0 ?
                     <div className="cart-item-list-container">
                         {
                             cart.map((product) => {
@@ -32,9 +31,8 @@ const CartItemList = () => {
                                         breadName={product.data.productName}
                                         price={product.data.price}
                                         stock={product.data.stock}
-                                        qty = {product.qty}
-                                        priceSubTotal = {product.priceSubTotal}
-                                        // item = {product}
+                                        qty={product.qty}
+                                        priceSubTotal={product.priceSubTotal}
                                     />
                                 </div>
                             })
@@ -43,10 +41,10 @@ const CartItemList = () => {
                     <div className="no-bread">
                         <p className="no-bread__message">Tu carrito está vacío 😩</p>
                         <div className="no-bread__img">
-                            <img src={noBread} alt="" />
+                            <img src={ noBread } alt="" />
                         </div>
-                        <button onClick={goToProduct} className="go-to-product">Seguir comprando</button>
-                        
+                        <button onClick={ goToProduct } className="go-to-product">Seguir comprando</button>
+
                     </div>
 
             }

@@ -13,7 +13,7 @@ const ItemDetailContainer = ({ searchFunction, field, value }) => {
             setIndex(index + 1);
         } else {
             setIndex(0);
-        }   
+        }
 
     }
 
@@ -27,37 +27,37 @@ const ItemDetailContainer = ({ searchFunction, field, value }) => {
 
     }
 
-    
+
     useEffect(() => {
-        searchFunction(field,value).then(response => setProduct(response))
+        searchFunction(field, value).then(response => setProduct(response))
     }, [searchFunction, field, value]);
 
 
 
     return (
         <>  {
-                product?
+            product ?
                 <>
-                    {!Array.isArray(product) && 
-                        <ItemDetail 
-                            item={product} 
-                            id= { value }
-                    />}
-                    {product.length > 1 &&<>
-                        <DealsControl 
-                            right = { handleAdd }
-                            left = { handleSubtract }
+                    {!Array.isArray(product) &&
+                        <ItemDetail
+                            item={product.data}
+                            id={value}
+                        />}
+                    {product.length > 1 && <>
+                        <DealsControl
+                            right={handleAdd}
+                            left={handleSubtract}
                         />
-                        <ItemDetail 
-                            item={product[index].data} 
-                            id = { product[index].id } 
+                        <ItemDetail
+                            item={product[index].data}
+                            id={product[index].id}
                         />
                     </>}
                 </> :
                 <>
                     <p className="loading">Cargando producto</p>
                 </>
-            }       
+        }
         </>
     )
 }

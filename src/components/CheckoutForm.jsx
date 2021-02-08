@@ -19,11 +19,11 @@ const CheckoutForm = () => {
     const { cart, setCart, subTotal } = cartContext;
     const [venta, completoVenta] = useState(false);
     const [idCompra, setIdCompra] = useState('');
-    const [ formValues, handleInputChange ] = useForm({
-        name:'',
-        lastName:'',
-        email:'',
-        telephone:'',
+    const [formValues, handleInputChange] = useForm({
+        name: '',
+        lastName: '',
+        email: '',
+        telephone: '',
     });
 
     const { name, lastName, email, telephone } = formValues;
@@ -38,14 +38,13 @@ const CheckoutForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if( isFormValid() ){
+        if (isFormValid()) {
 
             db.collection('ventas').add(compra)
                 .then(({ id }) => {
                     completoVenta(true);
                     setIdCompra(id);
                     setCart([]);
-                    console.log(id);
                 })
                 .catch(e => console.log(e));
 
@@ -54,7 +53,7 @@ const CheckoutForm = () => {
 
     const isFormValid = () => {
 
-        if(name.trim().length === 0) {
+        if (name.trim().length === 0) {
             setError(true);
             setErrMessage('Es necesario que ingreses tu nombre');
             return false;
@@ -62,13 +61,13 @@ const CheckoutForm = () => {
             setError(true);
             setErrMessage('Es necesario que ingreses tu apellido');
             return false;
-        } else if ( !validator.isEmail( email ) ) {
+        } else if (!validator.isEmail(email)) {
             setError(true);
             setErrMessage('Es necesario que ingreses un mail válido');
             return false;
-        } else if( !validator.isMobilePhone( telephone ) ) {
+        } else if (!validator.isMobilePhone(telephone)) {
             setError(true);
-            setErrMessage('Es necesario que ingreses un teléfono válid');
+            setErrMessage('Es necesario que ingreses un teléfono válido');
             return false;
         }
 
@@ -77,67 +76,67 @@ const CheckoutForm = () => {
 
     return (
         <>{
-            !venta?
-            <form onSubmit={handleSubmit} className="checkout-form shadow">
-                <h3>Ingresa tus datos</h3>
+            !venta ?
+                <form onSubmit={handleSubmit} className="checkout-form shadow">
+                    <h3>Ingresa tus datos</h3>
 
-                {
-                    error && <div className="box-error">*{errMessage}</div>
-                }
+                    {
+                        error && <div className="box-error">*{errMessage}</div>
+                    }
 
-                <div className="form-group">
-                    <input
-                        type="text"
-                        name="name"
-                        className="form-control"
-                        placeholder="Tu nombre"
-                        autoComplete="off"
-                        value={name}
-                        onChange={handleInputChange}
-                    />
-                </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="name"
+                            className="form-control"
+                            placeholder="Tu nombre"
+                            autoComplete="off"
+                            value={name}
+                            onChange={handleInputChange}
+                        />
+                    </div>
 
-                <div className="form-group">
-                    <input
-                        type="text"
-                        name="lastName"
-                        className="form-control"
-                        placeholder="Apellido"
-                        autoComplete="off"
-                        value={lastName}
-                        onChange={handleInputChange}
-                    />
-                </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="lastName"
+                            className="form-control"
+                            placeholder="Apellido"
+                            autoComplete="off"
+                            value={lastName}
+                            onChange={handleInputChange}
+                        />
+                    </div>
 
-                <div className="form-group">
-                    <input
-                        type="text"
-                        name="email"
-                        className="form-control"
-                        placeholder="email@gmail.com"
-                        autoComplete="off"
-                        value={email}
-                        onChange={handleInputChange}
-                    />
-                </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="email"
+                            className="form-control"
+                            placeholder="email@gmail.com"
+                            autoComplete="off"
+                            value={email}
+                            onChange={handleInputChange}
+                        />
+                    </div>
 
-                <div className="form-group">
-                    <input
-                        type="text"
-                        name="telephone"
-                        className="form-control"
-                        placeholder="011-23232323"
-                        value={telephone}
-                        onChange={handleInputChange}
-                    />
-                </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            name="telephone"
+                            className="form-control"
+                            placeholder="011-23232323"
+                            value={telephone}
+                            onChange={handleInputChange}
+                        />
+                    </div>
 
 
-                <button type="submit" className="buy-confirm">
-                    Confirmar compra
+                    <button type="submit" className="buy-confirm">
+                        Confirmar compra
                 </button>
 
-            </form> :
+                </form> :
                 <p className="buy-finished">La compra se realizó correctamente, el número de seguimiento de tu compra es: <strong>{idCompra}</strong></p>
         }</>
     )

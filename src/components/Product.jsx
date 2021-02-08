@@ -7,21 +7,21 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 import { capitalize } from '../helpers/formatFunctions';
 
-function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes,display,stock}) {
-    
+function Product({ itemID, bread, breadName, price, negativeVotes, positiveVotes, display }) {
+
     const [button, setbutton] = useState("Añadir al carrito")
-    
+
     const cartContext = useContext(CartContext);
     const { addToCart, cart } = cartContext;
 
 
     const onAdd = () => {
-            addToCart(itemID,1)
-            if(button==="Añadir al carrito")
+        addToCart(itemID, 1)
+        if (button === "Añadir al carrito")
             setbutton("Añadido")
-            if(cart.length>0){
-            }
-            
+        if (cart.length > 0) {
+        }
+
     }
 
     return (
@@ -65,12 +65,12 @@ function Product({itemID,bread,breadName,price,negativeVotes,positiveVotes,displ
                         </button>
                     </div>
                 </article>
-            }       
+            }
         </>
     )
 }
 
-Product.propTypes = {   
+Product.propTypes = {
     bread: PropTypes.string.isRequired,
     breadName: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,

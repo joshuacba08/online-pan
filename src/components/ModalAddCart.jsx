@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
+import CartItem from './CartItem';
 import './styles/ModalAddCart.css';
 
 const customStyles = {
@@ -13,40 +13,50 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         minWidth: '290px',
-        height: 'auto', 
+        height: 'auto',
     }
 };
 Modal.setAppElement('#root');
 
-const ModalAddCart = () => {
+const ModalAddCart = ({ item, id, qty }) => {
 
     const [isOpen, setIsOpen] = useState(true);
 
     const closeModal = () => {
-        console.log('closing...')
-        setIsOpen( false );
+        setIsOpen(false);
     }
     let history = useHistory();
-     const watchCart = () => {
-         history.push("/cart");
-     }
+    const watchCart = () => {
+        history.push("/cart");
+    }
+    const continueBuy = () => {
+        history.push("/shop");
+    }
+
 
     return (
         <Modal
-            isOpen={ isOpen }
-            // onAfterOpen={afterOpenModal}
-            onRequestClose={ closeModal }
-            style={ customStyles }
-            // className = "modal"
-            overlayClassName = "modal-fondo"
-        >   
+            isOpen={isOpen}
+            onRequestClose={closeModal}
+            style={customStyles}
+            overlayClassName="modal-fondo"
+        >
             <div className="modal-container">
-                <icon className="icon--close icon"></icon>
+                <i onClick={closeModal} className="icon--close icon"></i>
                 <h2><i className="icon--check icon"></i> Añadido a tu carrito</h2>
-                <hr/>
-                <p>Hola Mundirijillo</p>
+                <hr />
+                <CartItem
+                    itemID={id}
+                    bread={item.image}
+                    breadName={item.productName}
+                    price={item.price}
+                    stock={item.stock}
+                    qty={qty}
+                    priceSubTotal={item.price * qty}
+                    closeModal={closeModal}
+                />
                 <button onClick={watchCart} className="watch-cart">Ver carrito</button>
-                <button className="continue-buy">Seguir comprando</button>
+                <button onClick={continueBuy} className="continue-buy">Seguir comprando</button>
             </div>
 
         </Modal>

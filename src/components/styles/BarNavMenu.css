@@ -101,7 +101,8 @@ nav {
 }
 
 .icon-menu__close {
-    top: 8px;
+    top: 10px;
+    margin-right: 10px;
     position: absolute;
 }
 

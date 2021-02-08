@@ -2,8 +2,8 @@ import React from 'react';
 
 import './styles/DealsControl.css';
 
-const DealsControl = ({ right, left}) => {
-    
+const DealsControl = ({ right, left }) => {
+
 
     return (
         <div>

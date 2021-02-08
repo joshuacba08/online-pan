@@ -11,14 +11,11 @@ const Cart = () => {
 
     const { cart, subTotal } = cartContext;
 
-    console.log('El subtotal en el cart');
-    console.log(subTotal);
-
     return (
         <div className="cart-page-container">
             <h2 className="cart-page-container__title">Carrito de compras</h2>
             <CartItemList />
-            {cart.length!==0&&<CartOrderSumary subTotal={subTotal}/>}
+            {cart.length !== 0 && <CartOrderSumary subTotal={subTotal} showMini={null} />}
         </div>
     )
 }

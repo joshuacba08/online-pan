@@ -31,19 +31,8 @@ const getProductBy = (field,value) => {
 };
 
 
-const getProductById = (field, value) => {
-    return new Promise((resolve, reject) => {
-        db.collection('productos').doc(value).get()
-            .then(doc => {
-                if(doc.exists){
-                    resolve(doc.data());
-                }                
-            })
-            .catch(e => console.log(e));
-    });
-}
 
-const getProductByIdPrueba = (field, value) => {
+const getProductById = (field, value) => {
     return new Promise((resolve, reject) => {
         db.collection('productos').doc(value).get()
             .then(doc => {
@@ -59,24 +48,14 @@ const getProductByIdPrueba = (field, value) => {
 const getProductByName = (value, bbdd) => {
     return new Promise((resolve, reject) => {
         const result = bbdd.filter(product => product.data.productName.includes(value));
-        console.log('lo que paso en la función')
-        console.log(bbdd)
         resolve(result);
     });
 }
 
-// const getSpecificQuantity = (quantity) => products.filter((product) => product.itemID <= quantity); 
-
-// const getProductById = (id) => products.find((product) => product.itemID === parseInt(id)); 
-
-// const getProductByCategory = (category) => products.filter((product) => product.category === String(category));
-
-// const getProductBySale = (sale) => products.filter( (product) => product.sale === sale);
 export {
     getAllProducts,
     getProductBy,
     getProductById,
-    getProductByIdPrueba,
     getProductByName,
 
 }

@@ -2,31 +2,26 @@ import React, { useState } from 'react';
 
 import './styles/DisplayControl.css';
 
-const DisplayControl = ({category, query, changeDisplay}) => {
+const DisplayControl = ({ category, query, changeDisplay }) => {
 
     const [stateGrid, setStateGrid] = useState('icon-selected');
     const [stateList, setStateList] = useState('icon-no-selected');
 
     const changeStateGrid = () => {
-        // if(stateGrid==="icon-no-selected") {
-            setStateGrid('icon-selected')
-            setStateList('icon-no-selected')
-            changeDisplay("grid");
-        // } 
+        setStateGrid('icon-selected')
+        setStateList('icon-no-selected')
+        changeDisplay("grid");
     }
 
     const changeStateList = () => {
-        // if (stateList === "icon-no-selected") {
-            setStateList('icon-selected')
-            setStateGrid('icon-no-selected')
-            changeDisplay("list");
-        // }
-
+        setStateList('icon-selected')
+        setStateGrid('icon-no-selected')
+        changeDisplay("list");
     }
-    
+
     return (
         <div className="control-container">
-            {category!==undefined&&
+            {category !== undefined &&
                 <p className="control-container__title">Productos de {category}</p>
             }
             {query !== undefined &&
@@ -38,10 +33,10 @@ const DisplayControl = ({category, query, changeDisplay}) => {
 
             <div className="control-buttons">
                 <button className={`icon button-style icon--grid ${stateGrid}`}
-                        onClick={changeStateGrid}
+                    onClick={changeStateGrid}
                 ></button>
                 <button className={`icon button-style icon--list ${stateList}`}
-                        onClick={changeStateList}
+                    onClick={changeStateList}
                 ></button>
             </div>
         </div>
