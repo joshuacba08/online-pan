@@ -32,7 +32,7 @@
     animation-name: show;
     animation-timing-function: ease;
     animation-duration: 800ms;
-    animation-fill-mode: forwards;
+    /* animation-fill-mode: forwards; */
 }
 
 @keyframes show {
