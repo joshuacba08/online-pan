@@ -40,13 +40,13 @@ const CheckoutForm = () => {
 
         if (isFormValid()) {
 
-            db.collection('ventas').add(compra)
-                .then(({ id }) => {
-                    completoVenta(true);
-                    setIdCompra(id);
-                    setCart([]);
-                })
-                .catch(e => console.log(e));
+                db.collection('ventas').add(compra)
+                    .then(({ id }) => {
+                        completoVenta(true);
+                        setIdCompra(id);
+                        setCart([]);
+                    })
+                    .catch(e => console.log(e));
 
         }
     }
@@ -79,7 +79,6 @@ const CheckoutForm = () => {
             !venta ?
                 <form onSubmit={handleSubmit} className="checkout-form shadow">
                     <h3>Ingresa tus datos</h3>
-
                     {
                         error && <div className="box-error">*{errMessage}</div>
                     }
