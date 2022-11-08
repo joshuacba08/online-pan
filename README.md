@@ -1,7 +1,7 @@
 # Online Pan
 Online Pan es un ecommerce para la marca de panadería Melon Pan (ficticia). La propuesta busca desarrollar una plataforma ecommerce con todas las herramientas necesarias para que un negocio pueda promocionar y vender sus productos a través de internet. 
 
-#### Ver página en https://melonpan.oroyajs.com/
+#### Ver página en https://online-pan.oroyajs.com/
 ## Para el desarrollo de la página se usó
 
 | Dependencias | Documentación |
